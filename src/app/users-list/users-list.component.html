@@ -1,0 +1,35 @@
+<div class="list-container container">
+    <div class="list-title"><h5>User List</h5></div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr class="table-active">
+                    <th scope="col">Id</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userList; index as index_">
+                    <td>{{user.id}}</td>
+                    <!-- user avatar -->
+                    <td>
+                        <div class="user-avatar overflow-hidden border rounded-circle">
+                            <img [attr.src]="user.avatar" class="img-fluid" alt="user image">
+                        </div>
+                    </td>
+                    <td>{{user.first_name + ' ' + user.last_name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>
+                        <div class="actions d-flex">
+                            <button (click)="viewUser(user)" class="btn btn-sm me-3 btn-primary">View</button>
+                            <button (click)="deleteUser(index_)" class="btn btn-sm  btn-danger">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
