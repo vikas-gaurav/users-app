@@ -39,6 +39,7 @@ export class UsersListComponent implements OnInit {
 
   private updateUserList(){
     console.log(`UsersListComponent :: updateUserList`);
+    // res type is any, but could be a proper responce type/interface
     this.dataService.getAllUsers().subscribe((res : any) => {
       if(res){
         this.userList = res.data;
